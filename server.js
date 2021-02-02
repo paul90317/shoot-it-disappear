@@ -81,6 +81,9 @@ app.get('/click', (req, res) => {
     res.send("");
 })
 
+app.get('/port', (req, res) => {
+    res.send(portudp);
+})
 
 app.listen(porthttp,() => {
     console.log('http://127.0.0.1:3000/')
@@ -119,8 +122,6 @@ server.on('message',(msg,info)=>{
 })
 server.bind(portudp);
 
-console.log("hellow");
-console.log(portudp);
 
 function update(){
     var cmds="";
