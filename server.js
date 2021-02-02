@@ -119,6 +119,7 @@ server.on('message',(msg,info)=>{
 })
 server.bind(portudp);
 
+console.log(portudp);
 
 function update(){
     var cmds="";
