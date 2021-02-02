@@ -38,8 +38,12 @@ namespace game
         {
             try
             {
-                udpClient.Connect(server, 2222);
-
+                
+#pragma warning disable CS0618 // 類型或成員已經過時
+                IPAddress ipAddress = Dns.Resolve("shoot-it-disappear.herokuapp.com").AddressList[0];
+#pragma warning restore CS0618 // 類型或成員已經過時
+                IPEndPoint ipEndPoint = new IPEndPoint(ipAddress, 2222);
+                udpClient.Connect(ipEndPoint);
                 backgroundWorker1.RunWorkerAsync();
 
                 // Sends a message to the host to which you have connected.

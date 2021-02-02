@@ -119,6 +119,7 @@ server.on('message',(msg,info)=>{
 })
 server.bind(portudp);
 
+console.log("hellow");
 console.log(portudp);
 
 function update(){
