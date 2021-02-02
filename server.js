@@ -2,8 +2,8 @@ const app = require('express')()
 const fs=require('fs')
 var udp=require('dgram');
 
-porthttp=process.env.port || 3000;
-portudp=process.env.port || 2222;
+porthttp=process.env.PORT || 3000;
+portudp=process.env.PORT || 2222;
 
 function render(filename, params={}) {
     var data = fs.readFileSync(filename, 'binary');
@@ -82,7 +82,7 @@ app.get('/click', (req, res) => {
 })
 
 
-app.listen(porthttp, () => {
+app.listen(porthttp,() => {
     console.log('http://127.0.0.1:3000/')
     update();
 })
