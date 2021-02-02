@@ -1,7 +1,9 @@
 const app = require('express')()
 const fs=require('fs')
 var udp=require('dgram');
-const { randomInt } = require('crypto');
+
+porthttp=process.env.port || 3000;
+portudp=process.env.port || 2222;
 
 function render(filename, params={}) {
     var data = fs.readFileSync(filename, 'binary');
@@ -80,7 +82,7 @@ app.get('/click', (req, res) => {
 })
 
 
-app.listen(3000, () => {
+app.listen(porthttp, () => {
     console.log('http://127.0.0.1:3000/')
     update();
 })
@@ -115,7 +117,7 @@ server.on('message',(msg,info)=>{
         "bullets":[]
     }
 })
-server.bind(2222);
+server.bind(portudp);
 
 
 function update(){

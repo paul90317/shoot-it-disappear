@@ -1,0 +1,26 @@
+{
+  "name": "shoot-it-disappear",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "dgram": "^1.0.1",
+    "dgram-browserify": "^0.0.13",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paul90317/shoot-it-disappear.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paul90317/shoot-it-disappear/issues"
+  },
+  "homepage": "https://github.com/paul90317/shoot-it-disappear#readme"
+}
