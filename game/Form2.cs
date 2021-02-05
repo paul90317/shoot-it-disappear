@@ -12,7 +12,7 @@ namespace game
 {
     public partial class Form2 : Form
     {
-        string server = "https://shoot-it-disappear.herokuapp.com/";
+        string server = "shoot-it-disappear.herokuapp.com";
         public Form2()
         {
             InitializeComponent();
@@ -38,12 +38,7 @@ namespace game
         {
             try
             {
-                
-#pragma warning disable CS0618 // 類型或成員已經過時
-                IPAddress ipAddress = Dns.Resolve("shoot-it-disappear.herokuapp.com").AddressList[0];
-#pragma warning restore CS0618 // 類型或成員已經過時
-                IPEndPoint ipEndPoint = new IPEndPoint(ipAddress, 2222);
-                udpClient.Connect(ipEndPoint);
+                udpClient.Connect("shoot-it-disappear.herokuapp.com", 3462);
                 backgroundWorker1.RunWorkerAsync();
 
                 // Sends a message to the host to which you have connected.
@@ -233,7 +228,7 @@ namespace game
         static readonly HttpClient client = new HttpClient();
         private void Form2_KeyDown(object sender, KeyEventArgs e)
         {
-            string url = server;
+            string url = "https://" + server + "/";
             switch (e.KeyCode)
             {
                 case Keys.W:
@@ -255,7 +250,7 @@ namespace game
 
         private void Form2_KeyUp(object sender, KeyEventArgs e)
         {
-            string url = server;
+            string url = "https://" + server + "/";
             switch (e.KeyCode)
             {
                 case Keys.W:
@@ -277,7 +272,7 @@ namespace game
 
         private void Form2_MouseClick(object sender, MouseEventArgs e)
         {
-            string url = server;
+            string url = "https://" + server + "/";
             url += "click?name=" + name + "&x=" + e.X + "&y=" + e.Y;
             Task<HttpResponseMessage> response = client.GetAsync(url);
         }
