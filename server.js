@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.send(render('index.htm'));
 })
 app.get('/download', (req, res) => {
-    res.send(render('game/bin/Debug/game.exe'));
+    res.send(render('client.zip'));
 })
 /** key down */
 
