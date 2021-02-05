@@ -38,7 +38,7 @@ namespace game
         {
             try
             {
-                udpClient.Connect("shoot-it-disappear.herokuapp.com", 3462);
+                udpClient.Connect(server, 3462);
                 backgroundWorker1.RunWorkerAsync();
 
                 // Sends a message to the host to which you have connected.
