@@ -15,9 +15,6 @@ function render(filename, params={}) {
 app.get('/', (req, res) => {
     res.send(render('index.htm'));
 })
-app.get('/download', (req, res) => {
-    res.send(render('client.zip'));
-})
 /** key down */
 
 app.get('/left', (req, res) => {
