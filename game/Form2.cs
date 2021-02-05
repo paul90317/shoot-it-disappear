@@ -12,7 +12,8 @@ namespace game
 {
     public partial class Form2 : Form
     {
-        string server = "shoot-it-disappear.herokuapp.com";
+        string server = "localhost";
+        string _url = "http://127.0.0.1:3000/";
         public Form2()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace game
         {
             try
             {
-                udpClient.Connect(server, 3462);
+                udpClient.Connect(server, 2222);
                 backgroundWorker1.RunWorkerAsync();
 
                 // Sends a message to the host to which you have connected.
@@ -228,7 +229,7 @@ namespace game
         static readonly HttpClient client = new HttpClient();
         private void Form2_KeyDown(object sender, KeyEventArgs e)
         {
-            string url = "https://" + server + "/";
+            string url = _url;
             switch (e.KeyCode)
             {
                 case Keys.W:
@@ -250,7 +251,7 @@ namespace game
 
         private void Form2_KeyUp(object sender, KeyEventArgs e)
         {
-            string url = "https://" + server + "/";
+            string url = _url;
             switch (e.KeyCode)
             {
                 case Keys.W:
@@ -272,7 +273,7 @@ namespace game
 
         private void Form2_MouseClick(object sender, MouseEventArgs e)
         {
-            string url = "https://" + server + "/";
+            string url = _url;
             url += "click?name=" + name + "&x=" + e.X + "&y=" + e.Y;
             Task<HttpResponseMessage> response = client.GetAsync(url);
         }
